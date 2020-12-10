@@ -26,7 +26,7 @@ window.addEventListener('click', e => {
 
 	// Get the starting position of new ball
 	ball.style.bottom = `${bottom}px`;
-	ball.style.left = `${e.clientX - 50}px`;
+	ball.style.left = `${e.x - 50}px`;
 
 	// Append the ball div as a child to the container
 	container.appendChild(ball);
@@ -35,12 +35,10 @@ window.addEventListener('click', e => {
 	const bounceUp = anime({
 		autoplay: false,
 		targets: '#ball' + ballCount,
-		translateY: {
-			value: [bottom, 0],
-			duration: 575,
-			easing: 'easeOutQuad',
-		},
-		complete: function () {
+		translateY: [bottom, 0],
+		duration: 575,
+		easing: 'easeOutQuad',
+		complete: () => {
 			bounceDown.restart();
 		},
 	});
@@ -49,12 +47,10 @@ window.addEventListener('click', e => {
 	const bounceDown = anime({
 		autoplay: false,
 		targets: '#ball' + ballCount,
-		translateY: {
-			value: [0, bottom],
-			duration: 575,
-			easing: 'easeInQuad',
-		},
-		complete: function () {
+		translateY: [0, bottom],
+		duration: 575,
+		easing: 'easeInQuad',
+		complete: () => {
 			bounceUp.restart();
 		},
 	});
