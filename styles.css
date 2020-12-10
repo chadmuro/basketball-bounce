@@ -1,16 +1,21 @@
 .container {
-    position: relative;
+    /* Container class will be height and width of screen */
     height: 100vh;
     width: 100vw;
+    /* Set position to relative so ball divs can be set to absolute */
+    position: relative;
 }
 
 .ball {
+    /* Set height and width of the ball class */
     height: 100px;
     width: 100px;
+    /* Set position of ball to be where we click on screen */
     position: absolute;
 }
 
 img {
+    /* Image is a child of ball class, so height and width will be 100% of ball height and width */
     height: 100%;
     width: 100%
 }
